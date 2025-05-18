@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head><title>Dashboard</title></head>
+<body>
+  <h1>Opportunities</h1>
+  <ul id="list"></ul>
+  <script>
+    async function fetchRecs() {
+      const res = await fetch('/api/recs');
+      const data = await res.json();
+      const ul = document.getElementById('list');
+      ul.innerHTML = '';
+      data.pairs.forEach(p => {
+        const li = document.createElement('li');
+        li.textContent = `${p.symbol} | price ${p.price.toFixed(6)} | change ${(p.change*100).toFixed(2)}%`;
+        ul.appendChild(li);
+      });
+    }
+    setInterval(fetchRecs, 10000);
+    fetchRecs();
+  </script>
+</body>
+</html>

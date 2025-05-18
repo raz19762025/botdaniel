@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+python-dotenv
+requests
+python-telegram-bot==20.0
+jinja2
+python-telegram-bot
+bip-utils>=2.8.0
+
+# Added TA library for feature engineering
+ta
+
+aiohttp
